@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film & Sorozat</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand">
+                <i class="bi bi-film"></i> Film & Sorozat
+            </span>
+        </div>
+    </nav>
+</header>
+
+<main class="container my-5">
+
+    <h1 class="text-center mb-4">Film & Sorozat ajánló</h1>
+
+    <!-- 🔎 KERESŐ -->
+    <div class="mb-4">
+        <input type="text" id="searchInput" class="form-control" placeholder="Keresés...">
+    </div>
+
+    <!-- 🎬 SZŰRŐ -->
+    <div class="text-center mb-4">
+        <button class="btn btn-outline-primary filter-btn active" data-filter="all">Összes</button>
+        <button class="btn btn-outline-success filter-btn" data-filter="series">Sorozatok</button>
+        <button class="btn btn-outline-warning filter-btn" data-filter="mini-series">Mini Sorozatok</button>
+        <button class="btn btn-outline-danger filter-btn" data-filter="film">Filmek</button>
+        <button class="btn btn-outline-info filter-btn" data-filter="special">Különkiadások</button>
+    </div>
+
+    <!-- KÁRTYÁK -->
+    <div class="row g-4" id="cards">
+
+        <!-- SOROZAT -->
+        <div class="col-md-4 col-sm-6 item series" data-group="tvdu" data-title="Vámpírnaplók">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/6632b7162724268329d91857fac31330827481e513607989131214c82b237315.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Vámpírnaplók</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="tvdu" data-title="The Originals">
+            <div class="card media-card">
+                <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/f9cfda47-0083-417b-91eb-9acc7670314d/d70047c2e5cedc231a47b99bc6d49dd2d0fe44d0.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom" class="card-img-top">
+                <div class="card-body">
+                    <h5>The Originals – A sötétség kora</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="tvdu" data-title="Legacies">
+            <div class="card media-card">
+                <img src="https://static.sorozatjunkie.hu/wp-content/uploads/2019/01/Legacies-A-s%C3%B6t%C3%A9ts%C3%A9g-%C3%B6r%C3%B6ks%C3%A9ge.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Legacies – A sötétség öröksége</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="chicago" data-title="Lángoló Chicago">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/f58e8ccda944572262d36d17cdaa884b746297d1c890c3d7abfdd8bf681a1ee9.png" class="card-img-top">
+                <div class="card-body">
+                    <h5>Lángoló Chicago</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="chicago" data-title="Bűnös Chicago">
+            <div class="card media-card">
+                <img src="https://static.sorozatjunkie.hu/wp-content/uploads/2022/06/Chicago-PD-9.-evad-TV2.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Bűnös Chicago</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="chicago" data-title="Chicago Med">
+            <div class="card media-card">
+                <img src="https://pixel.disco.skyshowtime.com/uuid/75bd623d-0b0f-36fc-a131-6ac37802d31f/COVER_TITLE_WIDE?language=hu-HU&proposition=SKYSHOWTIME&version=30540784-4528-3012-b4ab-be796cd593fb" class="card-img-top">
+                <div class="card-body">
+                    <h5>Chicago Med</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="fbi" data-title="FBI – New York különleges ügynökei">
+            <div class="card media-card">
+                <img src="https://pixel.disco.skyshowtime.com/uuid/a073f52a-9d87-36db-a80a-06065c472645/COVER_TITLE_WIDE?language=hu-HU&proposition=SKYSHOWTIME&version=3f21057f-f798-3101-aa32-c8f92704da7b&output-format=webp" class="card-img-top">
+                <div class="card-body">
+                    <h5>FBI – New York különleges ügynökei</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="fbi" data-title="FBI: Most Wanted">
+            <div class="card media-card">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/cd/2b/7e/cd2b7eeb-f8a1-e15e-9a64-f72dc557cfe0/c57b8864-c44a-4cf9-aac3-d47450dd972b_FBIMostWanted_la16x9_3840x2160_S05_01.jpg/1200x675.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>FBI: Most Wanted</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="fbi" data-title="FBI: International">
+            <div class="card media-card">
+                <img src="https://cartermatt.com/wp-content/uploads/2024/09/FBI-International-season-4.webp" class="card-img-top">
+                <div class="card-body">
+                    <h5>FBI: International</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="ncis" data-title="NCIS">
+            <div class="card media-card">
+                <img src="https://wwwimage-us.pplusstatic.com/base/files/seo/85/79/07/378c85b6-61c3-4324-a60d-f1860ac349f6.jpg?format=webp" class="card-img-top">
+                <div class="card-body">
+                    <h5>NCIS</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="ncis" data-title="NCIS: Los Angeles">
+            <div class="card media-card">
+                <img src="https://wwwimage-tve.cbsstatic.com/base/files/seo/ncisla_social_1200x627_5.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>NCIS: Los Angeles</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="ncis" data-title="NCIS: New Orleans">
+            <div class="card media-card">
+                <img src="https://wwwimage-us.pplusstatic.com/base/files/seo/ncisno_social_1200x627.jpg?format=webp" class="card-img-top">
+                <div class="card-body">
+                    <h5>NCIS: New Orleans</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="ncis" data-title="NCIS: Hawaii">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/c10d1d6ff65edb579e77569739c02ecc3c59d992ff08477875401152a63ddc90.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>NCIS: Hawaii</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="ncis" data-title="NCIS: Sydney">
+            <div class="card media-card">
+                <img src="https://wwwimage-us.pplusstatic.com/base/files/seo/85/79/94/2ad0bc5e-ea45-4bb8-97a7-927343748a8c.jpg?format=webp" class="card-img-top">
+                <div class="card-body">
+                    <h5>NCIS: Sydney</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="ncis" data-title="NCIS: Tony és Ziva">
+            <div class="card media-card">
+                <img src="https://pixel.disco.skyshowtime.com/uuid/e54e285d-ff2e-3936-9642-e9519c6542e6/COVER_TITLE_WIDE?language=hu-HU&proposition=SKYSHOWTIME&version=86d27428-f1b4-34bf-9a52-d0b270850da8&output-format=webp" class="card-img-top">
+                <div class="card-body">
+                    <h5>NCIS: Tony és Ziva</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="ncis" data-title="NCIS: Origins">
+            <div class="card media-card">
+                <img src="https://wwwimage-us.pplusstatic.com/base/files/seo/85/79/47/0becf71f-cef4-4b2e-a047-4abdac26e921.jpg?format=webp" class="card-img-top">
+                <div class="card-body">
+                    <h5>NCIS: Origins</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item special" data-group="ncis" data-title="NCISVerse: The First 1,000">
+            <div class="card media-card">
+                <img src="https://ntvb.tmsimg.com/assets/p27061996_b_h8_aa.jpg?w=1280&h=720" class="card-img-top">
+                <div class="card-body">
+                    <h5>NCISVerse: The First 1,000</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/YoHD9XEInc0')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Skorpió – Agymenők akcióban">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/e7b75276b81aa9bf4b3cc4d5418366d0bceaee7310e0c794116fea75b2ca4cf1._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/cbsaacf/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1334,885,507,117_kv2153391f34c41b5172a3022deb992c03_.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Skorpió – Agymenők akcióban</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/YoHD9XEInc0')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Hawaii Five-0">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/4795f708c0f6c6f64c05872589c2edfcca0ab7f47373acc4d12f5bd01d9ae5d3.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Hawaii Five-0</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/YoHD9XEInc0')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Magnum">
+            <div class="card media-card">
+                <img src="https://ntvb.tmsimg.com/assets/p15528151_b_h8_az.jpg?w=1280&h=720" class="card-img-top">
+                <div class="card-body">
+                    <h5>Magnum</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/YoHD9XEInc0')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="MacGyver">
+            <div class="card media-card">
+                <img src="https://wwwimage-us.pplusstatic.com/base/files/seo/mcg_social_1200x627_9.jpg?format=webp" class="card-img-top">
+                <div class="card-body">
+                    <h5>MacGyver</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/YoHD9XEInc0')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Zsaruvér">
+            <div class="card media-card">
+                <img src="https://public-assets-pressexpress.s3.amazonaws.com/assets/releases/docimages/32564dac/BB-1417-1418_html_2bd67d43c31c0ce.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Zsaruvér</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/YoHD9XEInc0')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="újonc" data-title="Az Újonc">
+            <div class="card media-card">
+                <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/d59596fc-4f74-4845-8a1d-ce2022674704/compose?aspectRatio=1.78&format=webp&width=1200" class="card-img-top">
+                <div class="card-body">
+                    <h5>Az Újonc</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="újonc" data-title="Újoncok: FBI">
+            <div class="card media-card">
+                <img src="https://images-fio.6play.fr/v2/images/4519128/raw?auto=avif&blur=0&fit=scale_crop&height=630&interlace=1&optimize=high&width=1200&hash=1e5e7889d1f598c8fcaf9e22c5ea071521395a4f" class="card-img-top">
+                <div class="card-body">
+                    <h5>Újoncok: FBI</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Max Steel">
+            <div class="card media-card">
+                <img src="https://images-fio.6play.fr/v2/images/4843777/raw?auto=avif&blur=0&fit=scale_crop&height=630&interlace=1&optimize=high&width=1200&hash=e630b3ed189a18c67019fa50899e74a0c6b70c4d" class="card-img-top">
+                <div class="card-body">
+                    <h5>Max Steel</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item film" data-title="Max Steel film">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/4d9497df5bb700850686e886fef2995ad1f40551f297c655328557e6e7075d60.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Max Steel</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="ninjago" data-title="Ninjago: A Spinjitzu mesterei">
+            <div class="card media-card">
+                <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/91f74d6e-cf51-4c6c-967d-31b194be0394/081c73b3-e598-4a5c-bfb1-6303614d881a?host=wbd-images.prod-vod.h264.io&partner=beamcom" class="card-img-top">
+                <div class="card-body">
+                    <h5>Ninjago: A Spinjitzu mesterei</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item special" data-group="ninjago" data-title="Ninjago: Az Ősök napja">
+            <div class="card media-card">
+                <img src="https://static.wikia.nocookie.net/ninjago/images/d/d0/DoDTitleCard.png/revision/latest/scale-to-width-down/1000?cb=20161031213857" class="card-img-top">
+                <div class="card-body">
+                    <h5>Ninjago: Az Ősök napja</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/6ZfuNTqbHE8')">
+                        ▶ Előzetes
+                    </button>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://videa.hu/videok/film-animacio/lego-ninjago-az-osok-napja-ztJk7vCiWf1fms8n')">
+                        ▶ Film
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item film" data-group="ninjago" data-title="A Lego Ninjago film">
+            <div class="card media-card">
+                <img src="https://static.wikia.nocookie.net/sorozatok/images/d/d7/The_Lego_Ninjago_Movie_Logo.png/revision/latest/scale-to-width-down/1000?cb=20260202154336&path-prefix=hu" class="card-img-top">
+                <div class="card-body">
+                    <h5>A Lego Ninjago film</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/6ZfuNTqbHE8')">
+                        ▶ Előzetes
+                    </button>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://videa.hu/videok/film-animacio/a-lego-ninjago-film-MpongGsA.TBa1Fr8I')">
+                        ▶ Film
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item special" data-group="ninjago" data-title="Master of the 4th Dimension">
+            <div class="card media-card">
+                <img src="https://static.wikia.nocookie.net/ninjago/images/4/46/Ninjago_4D_Movie_Poster.jpeg/revision/latest/scale-to-width-down/1000?cb=20250727183426" class="card-img-top">
+                <div class="card-body">
+                    <h5>Master of the 4th Dimension</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/6ZfuNTqbHE8')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+                <div class="col-md-4 col-sm-6 item series" data-group="ninjago" data-title="Ninjago: Sárkányok birodalma">
+            <div class="card media-card">
+                <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/ea339d5e-4ae3-4a3b-8be9-e8c00a372623/df62926e-2f00-11f0-b9dc-12119106e6a1?host=wbd-images.prod-vod.h264.io&partner=beamcom" class="card-img-top">
+                <div class="card-body">
+                    <h5>Ninjago: Sárkányok birodalma</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+                <div class="col-md-4 col-sm-6 item special" data-group="ninjago" data-title="Ninjago - Álomcsapat">
+            <div class="card media-card">
+                <img src="https://static.wikia.nocookie.net/ninjago/images/3/34/Ninjago_-_Dream_Team_title_card.png/revision/latest/scale-to-width-down/1000?cb=20241110161241&path-prefix=hu" class="card-img-top">
+                <div class="card-body">
+                    <h5>Ninjago - Álomcsapat</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/6ZfuNTqbHE8')">
+                        ▶ Előzetes
+                    </button>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/watch?v=sWC-5dkXpb4')">
+                        ▶ Film
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item mini-series" data-group="ninjago" data-title="Ninjago Legends: A szörnyek földjén">
+            <div class="card media-card">
+                <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/4660cfec-ee29-4ef2-b15e-9966aa101eac/2775ff93-aa52-11f0-b0ae-120c3cbf429b?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=500" class="card-img-top">
+                <div class="card-body">
+                    <h5>Ninjago Legends: A szörnyek földjén</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="nexo" data-title="Nexo Knights">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/b63c06bc59f668750977addae55847e05929c3d4ed4ebb7fc86b2adfa7a6d4e9.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Nexo Knights</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item special" data-group="nexo" data-title="The Book of Creativity">
+            <div class="card media-card">
+                <img src="https://preview.redd.it/lego-nexo-knights-4d-the-book-of-creativity-movie-needed-v0-g5khw42rr8df1.jpg?width=648&format=pjpg&auto=webp&s=450bb11f363129a19e72d3787a3ee0e4299ba2f7" class="card-img-top">
+                <div class="card-body">
+                    <h5>The Book of Creativity</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item film" data-title="">
+            <div class="card media-card">
+                <img src="" class="card-img-top">
+                <div class="card-body">
+                    <h5></h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="winx" data-title="Winx Club">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/3d57d24f0fcd6d37e802b8124b88682c43ed4749456e13570390865c224701a0.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Winx Club</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="winx" data-title="A winxek világa">
+            <div class="card media-card">
+                <img src="https://www.animationmagazine.net/wordpress/wp-content/uploads/World-of-Winx-post.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>A winxek világa</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="winx" data-title="Végzet: A Winx Saga">
+            <div class="card media-card">
+                <img src="https://i0.wp.com/sorok-kozott.hu/wp-content/uploads/2021/01/winx-saga-01.jpg?fit=665%2C374&ssl=1" class="card-img-top">
+                <div class="card-body">
+                    <h5>Végzet: A Winx Saga</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Született kémek!">
+            <div class="card media-card">
+                <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/ad84a36c-c50d-4494-9c47-5e0bef4e310c/809b1fbd-ab39-11ef-9fed-0affd17b6387?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=500" class="card-img-top">
+                <div class="card-body">
+                    <h5>Született kémek!</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="LoliRock">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/d0771977321dd349df22b2e3197e1013f8933c49b89b153c9c4f24e338c795ed._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/02/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>LoliRock</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Mysticons">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/e05c0360d85197458ce744a090455e770442f0fffca1a1382c0e552a1dc8158e.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Mysticons</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Ever After High">
+            <div class="card media-card">
+                <img src="https://media-cache.cinematerial.com/p/500x/e54jj6rn/ever-after-high-poster.jpg?v=1581291096" class="card-img-top">
+                <div class="card-body">
+                    <h5>Ever After High</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Monster High">
+            <div class="card media-card">
+                <img src="https://static.wikia.nocookie.net/iepfanon/images/c/cf/Monster_High_%282010%29_poster.jpg/revision/latest?cb=20220928005601" class="card-img-top">
+                <div class="card-body">
+                    <h5>Monster High</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="Enchantimals">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/M/MV5BYWMyYWJjMTMtYmY1MC00YTNkLWIzNTctZDQ4MDFjOTE1ZTMzXkEyXkFqcGc@._V1_.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Enchantimals</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-title="X-Men ’97">
+            <div class="card media-card">
+                <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/563691ca-03ab-4b62-ac72-5afacbf90e1a/compose?aspectRatio=1.78&format=webp&width=1200" class="card-img-top">
+                <div class="card-body">
+                    <h5>X-Men ’97</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="mancs" data-title="Mancs Őrjárat">
+            <div class="card media-card">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/8sCEOC9ecLTLhqRQiEcYJg/1200x675.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Mancs Őrjárat</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item series" data-group="mancs" data-title="Rubble és a brigád">
+            <div class="card media-card">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Q_YMdZvn57Lmx_wagMQ0CA/1200x675.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Rubble és a brigád</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILM -->
+
+        <div class="col-md-4 col-sm-6 item film" data-group="mancs" data-title="Mancs Őrjárat: A Film">
+            <div class="card media-card">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Video115/v4/39/63/7d/39637dd7-7055-8981-df4b-3936460d8673/pr_source.lsr/1200x675.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Mancs Őrjárat: A Film</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/6ZfuNTqbHE8')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item film" data-group="mancs" data-title="Mancs őrjárat: A szuperfilm">
+            <div class="card media-card">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Video126/v4/15/8f/6f/158f6f42-8a9c-3037-b4cd-14a1501b10bd/6464fd47-131a-4347-8292-37d90c7bc77f_PawPatrolTheMightyMovie_HU_3840x2160.jpg/1200x675.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Mancs őrjárat: A szuperfilm</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/6ZfuNTqbHE8')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item film" data-group="mancs" data-title="Mancs őrjárat: A dínófilm">
+            <div class="card media-card">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxous52O1TKisRA1B4ggcXs6sNuwUd-hyDsvPaj1gz2_JpgTUtQDAX8PjRWYac_CII71MDoJIu5xBtyEF12jHyEdqDfdFyziapb4QX2a9TLKlpP79AaIFq0MSOO1ey0p_xLLfCKgp8toIlVUdPVH2EuvIqhv-0rZ-eH-T6PaXpAG5if6EXvAQ5/w1200-h630-p-k-no-nu/PAW_DinoMovieImage_2.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Mancs őrjárat: A dínófilm</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/b9EkMc79ZSU')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item film" data-title="Halálos Iramban: Hobbs & Shaw">
+            <div class="card media-card">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/e055c2b619c621e97291544eb04aef7dd07ce0858680422d9ae580cf00833af3.jpg">
+                <div class="card-body">
+                    <h5>Halálos Iramban: Hobbs & Shaw</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/YoHD9XEInc0')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 item film" data-title="Bosszúállók: Végjáték">
+            <div class="card media-card">
+                <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/9664f4a6-9841-4734-aa54-be6960492301/compose?aspectRatio=1.78&format=webp&width=1200" class="card-img-top">
+                <div class="card-body">
+                    <h5>Bosszúállók: Végjáték</h5>
+                    <button class="btn btn-danger w-100 mt-2" onclick="openTrailer('https://www.youtube.com/embed/6ZfuNTqbHE8')">
+                        ▶ Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ❌ NINCS TALÁLAT -->
+    <p id="noResult" class="text-center mt-4 d-none">Nincs találat</p>
+
+</main>
+
+<!-- 🎥 MODAL -->
+<div class="modal fade" id="trailerModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content bg-dark">
+            <div class="modal-body p-0">
+                <iframe id="trailerFrame" width="100%" height="400" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center p-3">
+    © 2026
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const buttons = document.querySelectorAll('.filter-btn');
+const items = document.querySelectorAll('.item');
+const searchInput = document.getElementById('searchInput');
+const noResult = document.getElementById('noResult');
+
+let currentFilter = 'all';
+
+// SZŰRÉS + KERESÉS
+function updateDisplay() {
+    let visibleCount = 0;
+    let searchText = searchInput.value.toLowerCase();
+
+    items.forEach(item => {
+        const title = item.dataset.title.toLowerCase();
+        const matchFilter = currentFilter === 'all' || item.classList.contains(currentFilter);
+        const matchSearch = title.includes(searchText);
+
+        if (matchFilter && matchSearch) {
+            item.style.display = 'block';
+            setTimeout(() => item.classList.remove('hide'), 50);
+            visibleCount++;
+        } else {
+            item.classList.add('hide');
+            setTimeout(() => item.style.display = 'none', 300);
+        }
+    });
+
+    noResult.classList.toggle('d-none', visibleCount !== 0);
+}
+
+// GOMBOK
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        currentFilter = btn.dataset.filter;
+        updateDisplay();
+    });
+});
+
+// KERESŐ
+searchInput.addEventListener('input', updateDisplay);
+
+// 🎥 MODAL
+function openTrailer(url) {
+    document.getElementById('trailerFrame').src = url;
+    new bootstrap.Modal(document.getElementById('trailerModal')).show();
+}
+
+// videó leállítás bezáráskor
+document.getElementById('trailerModal').addEventListener('hidden.bs.modal', () => {
+    document.getElementById('trailerFrame').src = '';
+});
+
+// inicializálás
+updateDisplay();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* KÁRTYA */
+.media-card {
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.media-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* SZŰRŐ AKTÍV */
+.filter-btn.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* ANIMÁCIÓ */
+.item {
+    transition: all 0.3s ease;
+}
+
+.item.hide {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* kereső */
+#searchInput {
+    max-width: 400px;
+    margin: auto;
+}
+
+/* nincs találat */
+#noResult {
+    font-size: 1.2rem;
+    color: gray;
+}
