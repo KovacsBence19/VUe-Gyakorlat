@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film & Sorozat ajánló</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap ikonok -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Saját CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-film"></i> Film & Sorozat
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Főoldal</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Filmek</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Sorozatok</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Kapcsolat</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Ajánlott tartalmak</h1>
+
+        <div class="row g-4">
+
+            <!-- Film 1 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card media-card h-100">
+                    <img src="https://picsum.photos/300/200?movie1" class="card-img-top" alt="film">
+                    <div class="card-body">
+                        <h5 class="card-title">Akciófilm</h5>
+                        <p class="card-text">Pörgős jelenetek és izgalmas történet.</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-danger">
+                            <i class="bi bi-play-fill"></i> Megnézem
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sorozat 1 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card media-card h-100">
+                    <img src="https://picsum.photos/300/200?series1" class="card-img-top" alt="sorozat">
+                    <div class="card-body">
+                        <h5 class="card-title">Dráma sorozat</h5>
+                        <p class="card-text">Fordulatos történet több évadon keresztül.</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-danger">
+                            <i class="bi bi-play-fill"></i> Megnézem
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Film 2 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card media-card h-100">
+                    <img src="https://picsum.photos/300/200?movie2" class="card-img-top" alt="film">
+                    <div class="card-body">
+                        <h5 class="card-title">Sci-fi film</h5>
+                        <p class="card-text">Utazás a jövőbe és az univerzumban.</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-danger">
+                            <i class="bi bi-play-fill"></i> Megnézem
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sorozat 2 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card media-card h-100">
+                    <img src="https://picsum.photos/300/200?series2" class="card-img-top" alt="sorozat">
+                    <div class="card-body">
+                        <h5 class="card-title">Vígjáték sorozat</h5>
+                        <p class="card-text">Könnyed, szórakoztató epizódok.</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-danger">
+                            <i class="bi bi-play-fill"></i> Megnézem
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Film 3 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card media-card h-100">
+                    <img src="https://picsum.photos/300/200?movie3" class="card-img-top" alt="film">
+                    <div class="card-body">
+                        <h5 class="card-title">Thriller</h5>
+                        <p class="card-text">Feszültséggel teli történet.</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-danger">
+                            <i class="bi bi-play-fill"></i> Megnézem
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sorozat 3 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card media-card h-100">
+                    <img src="https://picsum.photos/300/200?series3" class="card-img-top" alt="sorozat">
+                    <div class="card-body">
+                        <h5 class="card-title">Fantasy sorozat</h5>
+                        <p class="card-text">Varázslatos világ és epikus kalandok.</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-danger">
+                            <i class="bi bi-play-fill"></i> Megnézem
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p><i class="bi bi-camera-reels"></i> 2026 Film & Sorozat</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Kártya animáció */
+.media-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.media-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Layout fix */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
